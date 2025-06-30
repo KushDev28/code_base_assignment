@@ -22,37 +22,37 @@ A Flutter app that fetches a paginated list of users from the ReqRes API, suppor
 ## 📁 Project Structure
 
 lib/
-├── core/
-│   ├── connectivity_notifier/    # notifier for connectivity state
-│   ├── constants/                # colors,api constants
-│   ├── di/                       # Dependency injection setup
-│   ├── error/                    # Error handling classes
-│   ├── network/                  # Network status checker
-│   ├── service/                  # Common app services
-│   ├── theme/                    # App themes and styles
-│   ├── utils/                    # Helpers and utility functions
+├── core/                          # Core app-level utilities and services
+│   ├── connectivity_notifier/     # Notifier for internet connectivity
+│   ├── constants/                 # App constants (colors, API paths, etc.)
+│   ├── di/                        # Dependency injection setup (e.g. getIt)
+│   ├── error/                     # Error handling and API failure models
+│   ├── network/                   # Network-related logic (ApiFacade, Dio setup)
+│   ├── service/                   # Shared app services (SharedPreferences, etc.)
+│   └── utils/                     # General utility functions/helpers
 
-├── feature/user_list/
-│   ├── data/
-│   │   ├── api/                  # API services (Dio)
-│   │   ├── mapper/               # Model ↔ Entity mappers
-│   │   ├── models/               # API response models
-│   │   ├── repositories/         # Repository implementations
-│   │   ├── source/               # Local and remote data sources
+├── feature/                       # Feature-based module
+│   └── user_list/                 # User List feature
+│       ├── data/                  # Data layer
+│       │   ├── api/              # API service classes (e.g. Dio, endpoints)
+│       │   ├── mapper/           # DTO ↔ Entity mapper extensions
+│       │   ├── models/           # DTOs (Data Transfer Objects)
+│       │   ├── repositories/     # Concrete implementations of repositories
+│       │   └── source/           # Remote & local data sources
 
-│   ├── domain/
-│   │   ├── entities/             # Domain models (UserEntity, etc.)
-│   │   ├── mapper/               # Domain-specific mappers
-│   │   ├── repositories/         # Repository interfaces
-│   │   ├── use_cases/            # Business logic layer
+│       ├── domain/               # Domain layer
+│       │   ├── entities/         # Business models (e.g., UserEntity)
+│       │   ├── mapper/           # Domain-specific mappers (optional)
+│       │   ├── repositories/     # Abstract repository interfaces
+│       │   └── use_cases/        # Business logic and use case classes
 
-│   ├── presentation/
-│   │   ├── notifier/             # notifier classes
-│   │   ├── pages/                # Screens/UI views
-│   │   ├── widgets/              # Reusable UI components
+│       ├── presentation/         # Presentation layer
+│       │   ├── notifier/         # State management logic (Riverpod, etc.)
+│       │   ├── pages/            # UI screens (e.g., UserListScreen)
+│       │   └── widgets/          # Reusable UI widgets (e.g., AppBars, Cards)
 
 ├── main.dart                     # Application entry point
-```
+
 
 
 
