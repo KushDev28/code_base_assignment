@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/entities/user_entity.dart';
 import '../pages/user_detail_screen.dart';
 import 'custom_network_image.dart';
@@ -10,10 +11,9 @@ class UserListSliver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-            (context, index) {
+        (context, index) {
           final user = users[index];
           return Card(
             margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
@@ -27,7 +27,7 @@ class UserListSliver extends StatelessWidget {
                 );
               },
               contentPadding:
-              const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
               leading: CircleAvatar(
                 radius: 25,
                 backgroundColor: Colors.grey[200],

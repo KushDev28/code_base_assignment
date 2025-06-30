@@ -43,8 +43,3 @@ Future<void> setupLocator() async {
     UserUseCaseImpl(getIt<UserRepository>()),
   );
 }
-
-
-
-
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/app_colors.dart';
 import '../../domain/entities/user_entity.dart';
 import '../widgets/custom_network_image.dart';

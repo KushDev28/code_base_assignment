@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,7 +19,7 @@ class UserSearchBar extends ConsumerWidget {
             prefixIcon: Icon(Icons.search),
           ),
           onChanged: (val) =>
-          ref.read(userSearchQueryProvider.notifier).state = val,
+              ref.read(userSearchQueryProvider.notifier).state = val,
         ),
       ),
     );

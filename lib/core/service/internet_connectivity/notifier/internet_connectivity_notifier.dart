@@ -1,10 +1,9 @@
 import 'dart:async';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'internet_connectivity_notifier.g.dart';
-
 
 /// This notifier is used for check the network status of the application
 enum NetworkStatus {
@@ -25,7 +24,6 @@ class ConnectivityNotifier extends _$ConnectivityNotifier {
     ref.onDispose(() {
       _subscription?.cancel();
     });
-
 
     return NetworkStatus.connected;
   }

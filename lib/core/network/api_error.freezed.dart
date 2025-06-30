@@ -22,9 +22,13 @@ ApiError _$ApiErrorFromJson(Map<String, dynamic> json) {
 mixin _$ApiError {
   @JsonKey(name: "statusCode")
   int? get statusCode => throw _privateConstructorUsedError;
+
   bool? get success => throw _privateConstructorUsedError;
+
   String? get message => throw _privateConstructorUsedError;
+
   String? get requestId => throw _privateConstructorUsedError;
+
   String? get error => throw _privateConstructorUsedError;
 
   /// Serializes this ApiError to a JSON map.
@@ -41,6 +45,7 @@ mixin _$ApiError {
 abstract class $ApiErrorCopyWith<$Res> {
   factory $ApiErrorCopyWith(ApiError value, $Res Function(ApiError) then) =
       _$ApiErrorCopyWithImpl<$Res, ApiError>;
+
   @useResult
   $Res call(
       {@JsonKey(name: "statusCode") int? statusCode,
@@ -57,6 +62,7 @@ class _$ApiErrorCopyWithImpl<$Res, $Val extends ApiError>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -102,6 +108,7 @@ abstract class _$$ApiErrorImplCopyWith<$Res>
   factory _$$ApiErrorImplCopyWith(
           _$ApiErrorImpl value, $Res Function(_$ApiErrorImpl) then) =
       __$$ApiErrorImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -230,6 +237,7 @@ abstract class _ApiError extends ApiError {
       final String? message,
       final String? requestId,
       final String? error}) = _$ApiErrorImpl;
+
   const _ApiError._() : super._();
 
   factory _ApiError.fromJson(Map<String, dynamic> json) =
@@ -238,12 +246,16 @@ abstract class _ApiError extends ApiError {
   @override
   @JsonKey(name: "statusCode")
   int? get statusCode;
+
   @override
   bool? get success;
+
   @override
   String? get message;
+
   @override
   String? get requestId;
+
   @override
   String? get error;
 

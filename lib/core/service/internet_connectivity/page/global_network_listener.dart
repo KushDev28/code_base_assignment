@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../notifier/internet_connectivity_notifier.dart';
 
-
 ///Global Screen which is displaying flag of internet connected or not
 class GlobalNetworkListener extends ConsumerStatefulWidget {
   final Widget child;
@@ -11,7 +10,8 @@ class GlobalNetworkListener extends ConsumerStatefulWidget {
   const GlobalNetworkListener({super.key, required this.child});
 
   @override
-  ConsumerState<GlobalNetworkListener> createState() => _GlobalNetworkListenerState();
+  ConsumerState<GlobalNetworkListener> createState() =>
+      _GlobalNetworkListenerState();
 }
 
 class _GlobalNetworkListenerState extends ConsumerState<GlobalNetworkListener> {
@@ -24,7 +24,7 @@ class _GlobalNetworkListenerState extends ConsumerState<GlobalNetworkListener> {
 
       ref.listen<NetworkStatus>(
         connectivityNotifierProvider,
-            (prev, next) {
+        (prev, next) {
           if (prev != null && prev != next) {
             final isOffline = next == NetworkStatus.disconnected;
 

@@ -21,11 +21,15 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserDto {
   int get id => throw _privateConstructorUsedError;
+
   String get email => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'first_name')
   String get firstName => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'last_name')
   String get lastName => throw _privateConstructorUsedError;
+
   String get avatar => throw _privateConstructorUsedError;
 
   /// Serializes this UserDto to a JSON map.
@@ -41,6 +45,7 @@ mixin _$UserDto {
 abstract class $UserDtoCopyWith<$Res> {
   factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) then) =
       _$UserDtoCopyWithImpl<$Res, UserDto>;
+
   @useResult
   $Res call(
       {int id,
@@ -57,6 +62,7 @@ class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -101,6 +107,7 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   factory _$$UserDtoImplCopyWith(
           _$UserDtoImpl value, $Res Function(_$UserDtoImpl) then) =
       __$$UserDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -233,14 +240,18 @@ abstract class _UserDto implements UserDto {
 
   @override
   int get id;
+
   @override
   String get email;
+
   @override
   @JsonKey(name: 'first_name')
   String get firstName;
+
   @override
   @JsonKey(name: 'last_name')
   String get lastName;
+
   @override
   String get avatar;
 

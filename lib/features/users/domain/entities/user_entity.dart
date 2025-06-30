@@ -13,5 +13,6 @@ class UserEntity {
     required this.lastName,
     required this.avatar,
   });
+
   String get fullName => '$firstName $lastName';
 }

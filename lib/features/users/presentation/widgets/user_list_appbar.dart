@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
@@ -17,7 +16,10 @@ class UserListAppBar extends StatelessWidget {
       expandedHeight: 100,
       flexibleSpace: const FlexibleSpaceBar(
         titlePadding: EdgeInsets.only(left: 16, bottom: 16),
-        title: Text('Users',style: TextStyle(color: AppColors.background),),
+        title: Text(
+          'Users',
+          style: TextStyle(color: AppColors.background),
+        ),
       ),
     );
   }

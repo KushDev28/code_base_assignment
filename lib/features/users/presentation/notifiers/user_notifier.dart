@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:codebase_assignment/core/network/api_result.dart';
+
 import 'package:codebase_assignment/core/di/service_locator.dart';
+import 'package:codebase_assignment/core/network/api_result.dart';
 import 'package:codebase_assignment/core/service/shared_prefs/shared_pref_service.dart';
 import 'package:codebase_assignment/features/users/data/dto/user_dto.dart';
 import 'package:codebase_assignment/features/users/data/mappers/user_dto_mapper_extension.dart';
@@ -40,7 +41,8 @@ class UserNotifier extends _$UserNotifier {
     _currentPage = 1;
     _isLastPage = false;
 
-    final result = await _useCase.getUsers(page: _currentPage, perPage: _perPage);
+    final result =
+        await _useCase.getUsers(page: _currentPage, perPage: _perPage);
 
     if (result is Success<List<UserEntity>>) {
       final users = result.data;
@@ -69,7 +71,8 @@ class UserNotifier extends _$UserNotifier {
     _isLoadingMore = true;
     _currentPage++;
 
-    final result = await _useCase.getUsers(page: _currentPage, perPage: _perPage);
+    final result =
+        await _useCase.getUsers(page: _currentPage, perPage: _perPage);
 
     if (result is Success<List<UserEntity>>) {
       final newUsers = result.data;

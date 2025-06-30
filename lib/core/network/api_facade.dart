@@ -1,8 +1,8 @@
 import 'package:codebase_assignment/core/di/service_locator.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'api_config.dart';
 
+import 'api_config.dart';
 
 /// A singleton class that abstracts and manages all HTTP API calls using Dio.
 class ApiFacade {
@@ -42,15 +42,16 @@ class ApiFacade {
   /// Sends a GET request to the given [endpoint] with optional [queryParams], [data], and [options].
   /// Automatically attaches the access token if [needAccessToken] is true.
   Future<Response> get(
-      String endpoint, {
-        Map<String, dynamic>? queryParams,
-        bool needAccessToken = true,
-        Map<String, dynamic>? data,
-        Options? options,
-      }) async {
+    String endpoint, {
+    Map<String, dynamic>? queryParams,
+    bool needAccessToken = true,
+    Map<String, dynamic>? data,
+    Options? options,
+  }) async {
     try {
       options ??= needAccessToken ? await _getAccessTokenOptions() : null;
-      return await _dio.get(endpoint, queryParameters: queryParams, options: options, data: data);
+      return await _dio.get(endpoint,
+          queryParameters: queryParams, options: options, data: data);
     } on DioException catch (e) {
       if (e.response != null) {
         return _handleError(e);
@@ -61,7 +62,8 @@ class ApiFacade {
 
   /// Sends a POST request to the given [endpoint] with optional [data].
   /// Automatically includes the access token if [needAccessToken] is true.
-  Future<Response> post(String endpoint, {dynamic data, bool needAccessToken = true}) async {
+  Future<Response> post(String endpoint,
+      {dynamic data, bool needAccessToken = true}) async {
     try {
       var options = needAccessToken ? await _getAccessTokenOptions() : null;
       return await _dio.post(endpoint, data: data, options: options);

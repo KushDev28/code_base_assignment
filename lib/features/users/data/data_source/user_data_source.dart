@@ -1,5 +1,5 @@
-import 'package:codebase_assignment/core/network/api_result.dart';
 import 'package:codebase_assignment/core/network/api_error.dart';
+import 'package:codebase_assignment/core/network/api_result.dart';
 import 'package:codebase_assignment/features/users/data/api/user_api_service.dart';
 import 'package:codebase_assignment/features/users/data/dto/user_response_dto.dart';
 import 'package:dio/dio.dart';

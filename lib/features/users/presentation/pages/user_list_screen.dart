@@ -2,6 +2,7 @@ import 'package:codebase_assignment/features/users/presentation/widgets/user_lis
 import 'package:codebase_assignment/features/users/presentation/widgets/user_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../notifiers/user_notifier.dart';
 
 class UserListScreen extends ConsumerWidget {

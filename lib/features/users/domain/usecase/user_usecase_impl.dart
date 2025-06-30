@@ -1,6 +1,7 @@
 import 'package:codebase_assignment/core/network/api_result.dart';
 import 'package:codebase_assignment/features/users/domain/entities/user_entity.dart';
 import 'package:codebase_assignment/features/users/domain/repositories/user_repository.dart';
+
 import 'user_usecase.dart';
 
 class UserUseCaseImpl implements UserUseCase {

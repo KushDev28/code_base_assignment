@@ -15,9 +15,7 @@ class UserListBottomLoader extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Center(
-          child: isLoadingMore
-              ?  UserListShimmer()
-              : const SizedBox(height: 30),
+          child: isLoadingMore ? UserListShimmer() : const SizedBox(height: 30),
         ),
       ),
     );

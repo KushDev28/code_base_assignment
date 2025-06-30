@@ -2,14 +2,15 @@ import 'package:codebase_assignment/features/users/presentation/widgets/user_lis
 import 'package:codebase_assignment/features/users/presentation/widgets/user_list_bottom_loader.dart';
 import 'package:codebase_assignment/features/users/presentation/widgets/user_searchbar.dart';
 import 'package:codebase_assignment/features/users/presentation/widgets/user_sliver_list.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../domain/entities/user_entity.dart';
 import '../notifiers/user_notifier.dart';
 
 class UserListView extends ConsumerWidget {
   final List<UserEntity>? data;
+
   const UserListView({super.key, required this.data});
 
   @override
@@ -21,9 +22,9 @@ class UserListView extends ConsumerWidget {
       return const Center(child: Text("Something went wrong"));
     }
 
-
     final filteredUsers = data
-        .where((user) => user.fullName.toLowerCase().contains(query.toLowerCase()))
+        .where(
+            (user) => user.fullName.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
     return RefreshIndicator(
@@ -42,7 +43,6 @@ class UserListView extends ConsumerWidget {
           slivers: [
             const UserListAppBar(),
             const UserSearchBar(),
-
             if (filteredUsers.isEmpty) ...[
               SliverFillRemaining(
                 hasScrollBody: false,

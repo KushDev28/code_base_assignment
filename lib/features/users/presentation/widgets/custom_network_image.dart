@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
 class CustomNetworkImage extends StatelessWidget {
@@ -37,7 +37,7 @@ class CustomNetworkImage extends StatelessWidget {
         ),
       ),
       errorWidget: (context, url, error) =>
-      const Icon(Icons.broken_image, color: Colors.grey),
+          const Icon(Icons.broken_image, color: Colors.grey),
     );
 
     if (borderRadius != null) {

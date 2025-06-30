@@ -21,11 +21,15 @@ UserResponseDto _$UserResponseDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserResponseDto {
   int get page => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'per_page')
   int get perPage => throw _privateConstructorUsedError;
+
   int get total => throw _privateConstructorUsedError;
+
   @JsonKey(name: 'total_pages')
   int get totalPages => throw _privateConstructorUsedError;
+
   List<UserDto> get data => throw _privateConstructorUsedError;
 
   /// Serializes this UserResponseDto to a JSON map.
@@ -43,6 +47,7 @@ abstract class $UserResponseDtoCopyWith<$Res> {
   factory $UserResponseDtoCopyWith(
           UserResponseDto value, $Res Function(UserResponseDto) then) =
       _$UserResponseDtoCopyWithImpl<$Res, UserResponseDto>;
+
   @useResult
   $Res call(
       {int page,
@@ -59,6 +64,7 @@ class _$UserResponseDtoCopyWithImpl<$Res, $Val extends UserResponseDto>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -104,6 +110,7 @@ abstract class _$$UserResponseDtoImplCopyWith<$Res>
   factory _$$UserResponseDtoImplCopyWith(_$UserResponseDtoImpl value,
           $Res Function(_$UserResponseDtoImpl) then) =
       __$$UserResponseDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -183,6 +190,7 @@ class _$UserResponseDtoImpl implements _UserResponseDto {
   @JsonKey(name: 'total_pages')
   final int totalPages;
   final List<UserDto> _data;
+
   @override
   List<UserDto> get data {
     if (_data is EqualUnmodifiableListView) return _data;
@@ -243,14 +251,18 @@ abstract class _UserResponseDto implements UserResponseDto {
 
   @override
   int get page;
+
   @override
   @JsonKey(name: 'per_page')
   int get perPage;
+
   @override
   int get total;
+
   @override
   @JsonKey(name: 'total_pages')
   int get totalPages;
+
   @override
   List<UserDto> get data;
 

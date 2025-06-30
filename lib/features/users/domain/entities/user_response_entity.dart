@@ -1,6 +1,5 @@
 import 'package:codebase_assignment/features/users/domain/entities/user_entity.dart';
 
-
 class UserResponseEntity {
   final int page;
   final int perPage;

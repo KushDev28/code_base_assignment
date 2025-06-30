@@ -7,7 +7,6 @@ import 'package:codebase_assignment/features/users/data/mappers/user_dto_mapper_
 import 'package:codebase_assignment/features/users/domain/entities/user_entity.dart';
 import 'package:codebase_assignment/features/users/domain/repositories/user_repository.dart';
 
-
 class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource remoteDataSource;
   final SharedPreferencesService prefs;

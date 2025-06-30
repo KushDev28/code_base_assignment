@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 import 'api_error.dart';
 
 /// Represents the base class for handling API results generically.
