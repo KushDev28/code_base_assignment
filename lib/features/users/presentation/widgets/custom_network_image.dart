@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
-///Custom Network Image
 class CustomNetworkImage extends StatelessWidget {
   final String imageUrl;
   final double? width;
@@ -20,36 +20,32 @@ class CustomNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageWidget = Image.network(
-      imageUrl,
+    final image = CachedNetworkImage(
+      imageUrl: imageUrl,
       fit: fit,
       width: width,
       height: height,
-      errorBuilder: (context, error, stackTrace) =>
-      const Icon(Icons.broken_image, color: Colors.grey),
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) return child;
-        return  Shimmer(
-          color: Colors.grey[300]!,
-          child: Container(
-            width: 56,
-            height: 56,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
+      placeholder: (context, url) => Shimmer(
+        color: Colors.grey.shade300,
+        child: Container(
+          width: width ?? 56,
+          height: height ?? 56,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: borderRadius ?? BorderRadius.circular(8),
           ),
-        );
-      },
+        ),
+      ),
+      errorWidget: (context, url, error) =>
+      const Icon(Icons.broken_image, color: Colors.grey),
     );
 
     if (borderRadius != null) {
       return ClipRRect(
         borderRadius: borderRadius!,
-        child: imageWidget,
+        child: image,
       );
     }
-
-    return imageWidget;
+    return image;
   }
 }
