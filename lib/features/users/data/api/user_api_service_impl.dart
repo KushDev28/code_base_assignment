@@ -19,7 +19,7 @@ class UserApiServiceImpl implements UserApiService {
         'page': page,
         'per_page': perPage,
       },
-      needAccessToken: false,
+
     );
 
     return UserResponseDto.fromJson(response.data);

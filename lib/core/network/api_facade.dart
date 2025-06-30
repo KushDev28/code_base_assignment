@@ -44,14 +44,10 @@ class ApiFacade {
   Future<Response> get(
     String endpoint, {
     Map<String, dynamic>? queryParams,
-    bool needAccessToken = true,
     Map<String, dynamic>? data,
-    Options? options,
   }) async {
     try {
-      options ??= needAccessToken ? await _getAccessTokenOptions() : null;
-      return await _dio.get(endpoint,
-          queryParameters: queryParams, options: options, data: data);
+      return await _dio.get(endpoint, queryParameters: queryParams, data: data);
     } on DioException catch (e) {
       if (e.response != null) {
         return _handleError(e);
@@ -62,11 +58,15 @@ class ApiFacade {
 
   /// Sends a POST request to the given [endpoint] with optional [data].
   /// Automatically includes the access token if [needAccessToken] is true.
-  Future<Response> post(String endpoint,
-      {dynamic data, bool needAccessToken = true}) async {
+  Future<Response> post(
+    String endpoint, {
+    dynamic data,
+  }) async {
     try {
-      var options = needAccessToken ? await _getAccessTokenOptions() : null;
-      return await _dio.post(endpoint, data: data, options: options);
+      return await _dio.post(
+        endpoint,
+        data: data,
+      );
     } on DioException catch (e) {
       if (e.response != null) {
         return _handleError(e);
@@ -83,13 +83,6 @@ class ApiFacade {
       debugPrint('$e');
       rethrow;
     }
-  }
-
-  /// Generates Dio [Options] with headers including access token from shared preferences.
-  Future<Options> _getAccessTokenOptions() async {
-    var r = _config.defaultHeaders;
-
-    return Options(headers: r);
   }
 
   /// Handles Dio error responses and logs them.
