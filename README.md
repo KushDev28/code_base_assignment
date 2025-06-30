@@ -22,36 +22,58 @@ A Flutter app that fetches a paginated list of users from the ReqRes API, suppor
 ## 📁 Project Structure
 
 lib/
-├── core/                          # Core app-level utilities and services
-│   ├── connectivity_notifier/     # Notifier for internet connectivity
-│   ├── constants/                 # App constants (colors, API paths, etc.)
-│   ├── di/                        # Dependency injection setup (e.g. getIt)
-│   ├── error/                     # Error handling and API failure models
-│   ├── network/                   # Network-related logic (ApiFacade, Dio setup)
-│   ├── service/                   # Shared app services (SharedPreferences, etc.)
-│   └── utils/                     # General utility functions/helpers
 
-├── feature/                       # Feature-based module
-│   └── user_list/                 # User List feature
-│       ├── data/                  # Data layer
-│       │   ├── api/              # API service classes (e.g. Dio, endpoints)
-│       │   ├── mapper/           # DTO ↔ Entity mapper extensions
-│       │   ├── models/           # DTOs (Data Transfer Objects)
-│       │   ├── repositories/     # Concrete implementations of repositories
-│       │   └── source/           # Remote & local data sources
+core/
 
-│       ├── domain/               # Domain layer
-│       │   ├── entities/         # Business models (e.g., UserEntity)
-│       │   ├── mapper/           # Domain-specific mappers (optional)
-│       │   ├── repositories/     # Abstract repository interfaces
-│       │   └── use_cases/        # Business logic and use case classes
+connectivity_notifier/ – Notifier for internet connectivity state
 
-│       ├── presentation/         # Presentation layer
-│       │   ├── notifier/         # State management logic (Riverpod, etc.)
-│       │   ├── pages/            # UI screens (e.g., UserListScreen)
-│       │   └── widgets/          # Reusable UI widgets (e.g., AppBars, Cards)
+constants/ – App-wide constants (e.g. colors, API URLs)
 
-├── main.dart                     # Application entry point
+di/ – Dependency injection setup (e.g. getIt)
+
+error/ – Error models and handling
+
+network/ – Network layer (API facade, interceptors, config)
+
+service/ – Common/shared services (e.g. SharedPreferences)
+
+utils/ – Helper functions and utilities
+
+feature/
+
+user_list/
+
+data/
+
+api/ – API service classes (Dio, endpoints)
+
+mapper/ – Mappers from DTO to entity
+
+models/ – DTOs (Data Transfer Objects)
+
+repositories/ – Concrete repository implementations
+
+source/ – Data sources (remote/local)
+
+domain/
+
+entities/ – Business/domain models (e.g., UserEntity)
+
+mapper/ – Domain-level mappers (if needed)
+
+repositories/ – Abstract repository interfaces
+
+use_cases/ – Business logic and use cases
+
+presentation/
+
+notifier/ – Riverpod/Notifier classes
+
+pages/ – UI screens/pages
+
+widgets/ – Reusable UI components (ListTile, AppBar, etc.)
+
+main.dart – Application entry point
 
 
 
