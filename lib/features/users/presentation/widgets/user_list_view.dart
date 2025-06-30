@@ -1,4 +1,3 @@
-import 'package:codebase_assignment/core/constants/app_colors.dart';
 import 'package:codebase_assignment/features/users/presentation/widgets/user_list_appbar.dart';
 import 'package:codebase_assignment/features/users/presentation/widgets/user_list_bottom_loader.dart';
 import 'package:codebase_assignment/features/users/presentation/widgets/user_searchbar.dart';
@@ -6,7 +5,6 @@ import 'package:codebase_assignment/features/users/presentation/widgets/user_sli
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../domain/entities/user_entity.dart';
 import '../notifiers/user_notifier.dart';
 
@@ -18,22 +16,15 @@ class UserListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(userSearchQueryProvider);
     final List<UserEntity>? data = this.data;
-    bool isUserFound =false;
-    // If data is null (e.g. API failed), show nothing or error
+
     if (data == null) {
       return const Center(child: Text("Something went wrong"));
     }
 
-    // Filter users
+
     final filteredUsers = data
         .where((user) => user.fullName.toLowerCase().contains(query.toLowerCase()))
         .toList();
-
-
-    // If filtered users are empty (due to search), show "No users found"
-    if (filteredUsers.isEmpty) {
-     isUserFound=true;
-    }
 
     return RefreshIndicator(
       onRefresh: () async {
@@ -59,7 +50,7 @@ class UserListView extends ConsumerWidget {
                   child: Text(
                     "User Not Found",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 12,
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
                     ),

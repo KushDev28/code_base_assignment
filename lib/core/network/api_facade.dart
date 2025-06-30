@@ -1,9 +1,6 @@
 import 'package:codebase_assignment/core/di/service_locator.dart';
-import 'package:codebase_assignment/core/utils/extensions/string_extensions.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import '../service/shared_prefs/shared_pref_keys.dart';
-import '../service/shared_prefs/shared_pref_service.dart';
 import 'api_config.dart';
 
 
@@ -87,16 +84,9 @@ class ApiFacade {
   }
 
   /// Generates Dio [Options] with headers including access token from shared preferences.
-  Future<Options> _getAccessTokenOptions({bool logOutUserIfAccessTokenEmpty = true}) async {
+  Future<Options> _getAccessTokenOptions() async {
     var r = _config.defaultHeaders;
-    var accessToken = (await SharedPreferencesService.getInstance())
-        .getString(SharedPreferencesKeys.accessToken);
 
-    if (accessToken!.isNullOrEmpty && logOutUserIfAccessTokenEmpty) {
-      // handle logout logic here if needed
-    }
-
-    r["accesstoken"] = accessToken;
     return Options(headers: r);
   }
 

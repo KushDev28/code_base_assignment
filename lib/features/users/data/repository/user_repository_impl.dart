@@ -47,9 +47,9 @@ class UserRepositoryImpl implements UserRepository {
       }
     }
 
-    if (result is Failed) return Failed((result as Failed).errors);
-    if (result is ServerError) return ServerError((result as ServerError).errors);
-    if (result is InternalError) return InternalError((result as InternalError).msg);
+    if (result is Failed) return Failed((result as Failed).error);
+    if (result is ServerError) return ServerError((result as ServerError).error);
+    if (result is InternalError) return InternalError((result as InternalError).message);
 
     return InternalError("Unknown error in UserRepositoryImpl");
   }
