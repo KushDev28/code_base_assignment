@@ -7,13 +7,14 @@ import 'package:codebase_assignment/features/users/data/mappers/user_dto_mapper_
 import 'package:codebase_assignment/features/users/domain/entities/user_entity.dart';
 import 'package:codebase_assignment/features/users/domain/repositories/user_repository.dart';
 
+
 class UserRepositoryImpl implements UserRepository {
   final UserRemoteDataSource remoteDataSource;
   final SharedPreferencesService prefs;
 
   UserRepositoryImpl({
-     required this.remoteDataSource,
-     required this.prefs,
+    required this.remoteDataSource,
+    required this.prefs,
   });
 
   @override
@@ -29,30 +30,32 @@ class UserRepositoryImpl implements UserRepository {
     if (result is Success<UserResponseDto>) {
       final userDtos = result.data.data;
 
-      if (page == 1) {
-        await prefs.cacheUserDtos(userDtos);
-      }
+      // Cache per-page data
+      await prefs.cacheUserPage(page, userDtos);
 
       final userEntities = userDtos.map((dto) => dto.toEntity()).toList();
-
       return Success(userEntities);
     }
 
-    if (page == 1 &&
-        (result is Failed || result is ServerError || result is InternalError)) {
-      final cachedDtos = prefs.getCachedUserDtos();
+    // If failure, try getting that page from cache
+    if (result is Failed || result is ServerError || result is InternalError) {
+      final cachedDtos = prefs.getUserPage(page);
       if (cachedDtos.isNotEmpty) {
         final cachedEntities = cachedDtos.map((dto) => dto.toEntity()).toList();
         return Success(cachedEntities);
       }
     }
 
-    if (result is Failed) return Failed((result as Failed).error);
-    if (result is ServerError) return ServerError((result as ServerError).error);
-    if (result is InternalError) return InternalError((result as InternalError).message);
-
+    // Handle various failure cases
+    if (result is Failed<UserResponseDto>) {
+      return Failed(result.error);
+    }
+    if (result is ServerError<UserResponseDto>) {
+      return ServerError(result.error);
+    }
+    if (result is InternalError<UserResponseDto>) {
+      return InternalError(result.message);
+    }
     return InternalError("Unknown error in UserRepositoryImpl");
   }
 }
-
-
