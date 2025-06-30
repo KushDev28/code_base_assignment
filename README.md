@@ -22,37 +22,59 @@ A Flutter app that fetches a paginated list of users from the ReqRes API, suppor
 ## 📁 Project Structure
 
 lib/
-├── core/
-│   ├── connectivity_notifier/    # notifier for connectivity state
-│   ├── constants/                # colors,api constants
-│   ├── di/                       # Dependency injection setup
-│   ├── error/                    # Error handling classes
-│   ├── network/                  # Network status checker
-│   ├── service/                  # Common app services
-│   ├── theme/                    # App themes and styles
-│   ├── utils/                    # Helpers and utility functions
 
-├── feature/user_list/
-│   ├── data/
-│   │   ├── api/                  # API services (Dio)
-│   │   ├── mapper/               # Model ↔ Entity mappers
-│   │   ├── models/               # API response models
-│   │   ├── repositories/         # Repository implementations
-│   │   ├── source/               # Local and remote data sources
+core/
 
-│   ├── domain/
-│   │   ├── entities/             # Domain models (UserEntity, etc.)
-│   │   ├── mapper/               # Domain-specific mappers
-│   │   ├── repositories/         # Repository interfaces
-│   │   ├── use_cases/            # Business logic layer
+connectivity_notifier/ – Notifier for internet connectivity state
 
-│   ├── presentation/
-│   │   ├── notifier/             # notifier classes
-│   │   ├── pages/                # Screens/UI views
-│   │   ├── widgets/              # Reusable UI components
+constants/ – App-wide constants (e.g. colors, API URLs)
 
-├── main.dart                     # Application entry point
-```
+di/ – Dependency injection setup (e.g. getIt)
+
+error/ – Error models and handling
+
+network/ – Network layer (API facade, interceptors, config)
+
+service/ – Common/shared services (e.g. SharedPreferences)
+
+utils/ – Helper functions and utilities
+
+feature/
+
+user_list/
+
+data/
+
+api/ – API service classes (Dio, endpoints)
+
+mapper/ – Mappers from DTO to entity
+
+models/ – DTOs (Data Transfer Objects)
+
+repositories/ – Concrete repository implementations
+
+source/ – Data sources (remote/local)
+
+domain/
+
+entities/ – Business/domain models (e.g., UserEntity)
+
+mapper/ – Domain-level mappers (if needed)
+
+repositories/ – Abstract repository interfaces
+
+use_cases/ – Business logic and use cases
+
+presentation/
+
+notifier/ – Riverpod/Notifier classes
+
+pages/ – UI screens/pages
+
+widgets/ – Reusable UI components (ListTile, AppBar, etc.)
+
+main.dart – Application entry point
+
 
 
 
